@@ -1,0 +1,106 @@
+[NEAT]
+fitness_criterion     = max
+# Min, Max, Mean (This decides how to find the best bird)
+fitness_threshold     = 100
+ # Once this is reached, we can stop making new generations
+pop_size              = 100
+ # how many birds
+reset_on_extinction   = False
+ # If a species goes extinct, should it be reset? (Check neat documentation)
+
+[DefaultGenome] # each bird is a genome, this sets up what each bird starts with.
+# node activation options
+activation_default      = tanh
+ # idek, tanh is default
+activation_mutate_rate  = 0.0
+ # what percent that a new bird will have a random activation function (below)
+activation_options      = tanh
+ # this is a list of functions that the mutate rate above picks from
+
+# node aggregation options
+aggregation_default     = sum
+ # idk, check neat documentation
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options
+bias_init_mean          = 0.0
+ # idek lol
+bias_init_stdev         = 1.0
+bias_max_value          = 30.0
+ # what the biases will be when birds first generate (remember Machine Learning) Biases, Weights, Nodes, etc.
+bias_min_value          = -30.0
+bias_mutate_power       = 0.5
+ # how likely birds are to change nodes and stuff.
+bias_mutate_rate        = 0.7
+bias_replace_rate       = 0.1
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0
+ # idk
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+conn_add_prob           = 0.5
+ # how likely to add an new connection or remove a connection from 2 nodes.
+conn_delete_prob        = 0.5
+
+# connection enable options
+enabled_default         = True
+ # all connections will be active
+enabled_mutate_rate     = 0.01
+ # chance to deactivate a connection
+
+feed_forward            = True
+ # give fitness as it travels forward
+initial_connection      = full
+
+# node add/remove rates
+node_add_prob           = 0.2
+ # how likely it is to add nodes
+node_delete_prob        = 0.2
+
+# network parameters
+num_hidden              = 0
+ # how many hidden nodes
+num_inputs              = 3
+ # how many inputs
+num_outputs             = 1
+ # how many outputs
+
+# node response options
+response_init_mean      = 1.0
+ # idk lol
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0
+ # edit weights (similar to biases)
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0
+ # lol
+
+[DefaultStagnation]
+species_fitness_func = max
+ # take the max fitness from each species
+max_stagnation       = 20
+ # how many generations can pass without fitness increasing
+species_elitism      = 2
+ #
+
+[DefaultReproduction]
+# idk again lol
+elitism            = 2
+survival_threshold = 0.2
